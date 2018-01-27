@@ -13,33 +13,33 @@ var player,
       name: "Jean Grey",
       baseAttack: 3,
       attackPower: 3,
-      hitPoints: 50,
-      counterAttackPower: 4,
-      displayHTML: "<div id='jean-grey__img'><img class='character__image' src='assets/images/jean-grey.jpg' alt='jean grey' /></div><div id='jean-grey__hp'>50</div>"
+      hitPoints: 250,
+      counterAttackPower: 17,
+      displayHTML: "<div id='jean-grey__img'><img class='character__image' src='assets/images/jean-grey.jpg' alt='jean grey' /></div><div id='jean-grey__hp' class='hp'>50</div>"
     },
     magneto: {
       name: "Magneto",
       baseAttack: 6,
       attackPower: 6,
-      hitPoints: 45,
-      counterAttackPower: 3,
-      displayHTML: "<div id='magneto__img'><img class='character__image' src='assets/images/magneto.jpg' alt='magneto' /></div><div id='magneto__hp'>45</div>"
+      hitPoints: 210,
+      counterAttackPower: 14,
+      displayHTML: "<div id='magneto__img'><img class='character__image' src='assets/images/magneto.jpg' alt='magneto' /></div><div id='magneto__hp' class='hp'>45</div>"
     },
     rogue: {
       name: "Rogue",
       baseAttack: 5,
       attackPower: 5,
-      hitPoints: 60,
-      counterAttackPower: 9,
-      displayHTML: "<div id='rogue__img'><img class='character__image' src='assets/images/rogue.gif' alt='rogue' /></div><div id='rogue__hp'>60</div>"
+      hitPoints: 220,
+      counterAttackPower: 15,
+      displayHTML: "<div id='rogue__img'><img class='character__image' src='assets/images/rogue.gif' alt='rogue' /></div><div id='rogue__hp' class='hp'>60</div>"
     },
     angel: {
       name: "Angel",
-      baseAttack: 7,
-      attackPower: 7,
-      hitPoints: 90,
-      counterAttackPower: 8,
-      displayHTML: "<div id='angel__img'><img class='character__image' src='assets/images/angel.jpg' alt='angel' /></div><div id='angel__hp'>90</div>"
+      baseAttack: 4,
+      attackPower: 4,
+      hitPoints: 240,
+      counterAttackPower: 16,
+      displayHTML: "<div id='angel__img'><img class='character__image' src='assets/images/angel.jpg' alt='angel' /></div><div id='angel__hp' class='hp'>90</div>"
     }
   }
 
@@ -64,7 +64,9 @@ var player,
   }
 
   function startGame() {
+    $("#attack-button").on("click", processAttack);
     $("#attack-button").hide();
+    $("#defeated").hide();
     createStartingDivs();
     $("#jean-grey").html(characters.jeanGrey.displayHTML);
     $("#magneto").html(characters.magneto.displayHTML);
@@ -94,15 +96,35 @@ var player,
     $("#current__attacker").html(attackerHTML);
     $(this).remove();
     $(".enemies").off("click", selectAttacker);
-    $("#attack-button").on("click", processAttack);
   }
 
   function processAttack() {
-    player.hitPoints -= attacker.counterAttackPower;
-    console.log("player", player.hitPoints);
     attacker.hitPoints -= player.attackPower;
-    console.log("attacker", attacker.hitPoints);
+    $("#current__attacker .hp").text(attacker.hitPoints.toString());
+    player.hitPoints -= attacker.counterAttackPower;
+    $("#current__player .hp").text(player.hitPoints.toString());
+    console.log("player", player.hitPoints);
     player.attackPower += player.baseAttack;
-    console.log("player power", player.attackPower);
+    checkProgress();
   }
-
+  
+  function checkProgress() {
+    if (player.hitPoints <= 0) {
+      console.log("you lose");
+      //play again
+      $("#attack-button").hide();
+    } else if (attacker.hitPoints <= 0) {
+      if ($("#enemies").children().length){
+        console.log("select another enemy")
+        $(".enemies").on("click", selectAttacker);
+        $("#attack-button").hide();
+        $("#defeated").show();
+        var defeatedHTML = "<div class='character__div'>" + $("#current__attacker").html() + "</div>";
+        $("#current__attacker").empty();
+        $("#defeated").append(defeatedHTML);
+      } else {
+        console.log("you win!");
+        //play again?
+      }
+    }
+  }
