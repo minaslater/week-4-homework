@@ -1,5 +1,12 @@
 $(function () {
-  var player,
+  
+
+  startGame();
+
+
+});
+
+var player,
     attacker;
   var characters = {
     jeanGrey: {
@@ -45,6 +52,7 @@ $(function () {
   }
 
   function selectPlayer(event) {
+    player = characters[$(this).data("name")];
     var playerHTML = $(event.currentTarget).html();
     $("#current__player").html(playerHTML);
     $(this).remove();
@@ -58,12 +66,10 @@ $(function () {
   }
 
   function selectAttacker(event) {
+    attacker = characters[$(this).data("name")];
     var attackerHTML = $(event.currentTarget).html();
     $("#current__attacker").html(attackerHTML);
     $(this).remove();
     $(".enemies").off("click", selectAttacker);
   }
 
-  startGame();
-
-});
