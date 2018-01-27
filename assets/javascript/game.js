@@ -13,7 +13,7 @@ var player,
       name: "Jean Grey",
       baseAttack: 3,
       attackPower: 3,
-      health: 50,
+      hitPoints: 50,
       counterAttackPower: 4,
       displayHTML: "<div id='jean-grey__img'><img class='character__image' src='assets/images/jean-grey.jpg' alt='jean grey' /></div><div id='jean-grey__hp'>50</div>"
     },
@@ -64,6 +64,7 @@ var player,
   }
 
   function startGame() {
+    $("#attack-button").hide();
     createStartingDivs();
     $("#jean-grey").html(characters.jeanGrey.displayHTML);
     $("#magneto").html(characters.magneto.displayHTML);
@@ -89,8 +90,19 @@ var player,
   function selectAttacker(event) {
     attacker = characters[$(this).data("name")];
     var attackerHTML = $(event.currentTarget).html();
+    $("#attack-button").show();
     $("#current__attacker").html(attackerHTML);
     $(this).remove();
     $(".enemies").off("click", selectAttacker);
+    $("#attack-button").on("click", processAttack);
+  }
+
+  function processAttack() {
+    player.hitPoints -= attacker.counterAttackPower;
+    console.log("player", player.hitPoints);
+    attacker.hitPoints -= player.attackPower;
+    console.log("attacker", attacker.hitPoints);
+    player.attackPower += player.baseAttack;
+    console.log("player power", player.attackPower);
   }
 
