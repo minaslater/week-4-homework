@@ -1,8 +1,12 @@
 .character__div {
   border: 1px black solid;
-  display: inline-block
+  display: inline-block;
 }
 
 .character__image {
   width: 200px;
+}
+
+.hide {
+  display: none;
 }

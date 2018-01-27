@@ -41,7 +41,14 @@ $(function () {
     $("#magneto").html(characters.magneto.displayHTML);
     $("#rogue").html(characters.rogue.displayHTML);
     $("#angel").html(characters.angel.displayHTML);
+    $(".character").on("click", function(event) {
+      var playerCard = $(event.currentTarget).html();
+      $("#current__player").html(playerCard);
+      $(this).remove();
+      debugger;
+    })
   }
 
   startGame();
+
 });
