@@ -43,7 +43,28 @@ var player,
     }
   }
 
+  function createStartingDivs() {
+    var jgDiv = $("<div>");
+    var magnetoDiv = $("<div>");
+    var rogueDiv = $("<div>");
+    var angelDiv = $("<div>");
+    jgDiv.attr("id", "jean-grey");
+    magnetoDiv.attr("id", "magneto");
+    rogueDiv.attr("id", "rogue");
+    angelDiv.attr("id", "angel");
+    jgDiv.attr("data-name", "jeanGrey");
+    magnetoDiv.attr("data-name", "magneto");
+    rogueDiv.attr("data-name", "rogue");
+    angelDiv.attr("data-name", "angel");
+    $("#available-characters").append(jgDiv);
+    $("#available-characters").append(magnetoDiv);
+    $("#available-characters").append(rogueDiv);
+    $("#available-characters").append(angelDiv);
+    $("#available-characters div").addClass("character__div character")
+  }
+
   function startGame() {
+    createStartingDivs();
     $("#jean-grey").html(characters.jeanGrey.displayHTML);
     $("#magneto").html(characters.magneto.displayHTML);
     $("#rogue").html(characters.rogue.displayHTML);
