@@ -41,12 +41,27 @@ $(function () {
     $("#magneto").html(characters.magneto.displayHTML);
     $("#rogue").html(characters.rogue.displayHTML);
     $("#angel").html(characters.angel.displayHTML);
-    $(".character").on("click", function(event) {
-      var playerCard = $(event.currentTarget).html();
-      $("#current__player").html(playerCard);
-      $(this).remove();
-      debugger;
-    })
+    $(".character").on("click", selectPlayer)
+  }
+
+  function selectPlayer(event) {
+    var playerHTML = $(event.currentTarget).html();
+    $("#current__player").html(playerHTML);
+    $(this).remove();
+    var enemyHTML = $("#available-characters").html();
+    $("#enemies").html(enemyHTML);
+    $("#characters").hide();
+    $("#available-characters").empty();
+    $(".character__div").removeClass("character");
+    $("#enemies").children().addClass("enemies");
+    $(".enemies").on("click", selectAttacker);
+  }
+
+  function selectAttacker(event) {
+    var attackerHTML = $(event.currentTarget).html();
+    $("#current__attacker").html(attackerHTML);
+    $(this).remove();
+    $(".enemies").off("click", selectAttacker);
   }
 
   startGame();
