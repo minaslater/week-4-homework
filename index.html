@@ -10,15 +10,15 @@
 
 <body>
   <div>
-    <h3>
+    <h3 id="characters">
       choose a character:
     </h3>
+    <!-- where the characters go at start -->
     <div id="available-characters">
-      <!-- where the characters go at start -->
-      <div id="jean-grey" class="character__div"></div>
-      <div id="magneto" class="character__div"></div>
-      <div id="rogue" class="character__div"></div>
-      <div id="angel" class="character__div"></div>
+      <div id="jean-grey" class="character__div character" data-name="jeanGrey"></div>
+      <div id="magneto" class="character__div character" data-name="magneto"></div>
+      <div id="rogue" class="character__div character" data-name="rogue"></div>
+      <div id="angel" class="character__div character" data-name="angel"></div>
     </div>
   </div>
   <div>
@@ -27,22 +27,24 @@
     </h3>
     <div id="player">
       <!-- where the player character go -->
+      <div id="current__player" class="character__div"></div>
     </div>
   </div>
   <div>
     <h3>
       enemies:
     </h3>
+    <!-- where the other three goes -->
     <div id="enemies">
-      <!-- where the other three goes -->
     </div>
   </div>
   <div>
       <h3>
         attacking:
       </h3>
-      <div id="current-attacker">
-        <!-- where the attacker go when selected -->
+      <!-- where the attacker go when selected -->
+      <div id="attacker">
+        <div id="current__attacker" class="character__div"></div>
       </div>
     </div>
 </body>

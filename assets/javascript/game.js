@@ -1,5 +1,12 @@
 $(function () {
-  var player,
+  
+
+  startGame();
+
+
+});
+
+var player,
     attacker;
   var characters = {
     jeanGrey: {
@@ -41,7 +48,28 @@ $(function () {
     $("#magneto").html(characters.magneto.displayHTML);
     $("#rogue").html(characters.rogue.displayHTML);
     $("#angel").html(characters.angel.displayHTML);
+    $(".character").on("click", selectPlayer)
   }
 
-  startGame();
-});
+  function selectPlayer(event) {
+    player = characters[$(this).data("name")];
+    var playerHTML = $(event.currentTarget).html();
+    $("#current__player").html(playerHTML);
+    $(this).remove();
+    var enemyHTML = $("#available-characters").html();
+    $("#enemies").html(enemyHTML);
+    $("#characters").hide();
+    $("#available-characters").empty();
+    $(".character__div").removeClass("character");
+    $("#enemies").children().addClass("enemies");
+    $(".enemies").on("click", selectAttacker);
+  }
+
+  function selectAttacker(event) {
+    attacker = characters[$(this).data("name")];
+    var attackerHTML = $(event.currentTarget).html();
+    $("#current__attacker").html(attackerHTML);
+    $(this).remove();
+    $(".enemies").off("click", selectAttacker);
+  }
+
