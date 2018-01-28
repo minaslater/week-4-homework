@@ -1,6 +1,38 @@
+html,
+body {
+  background: url("../images/x-background.jpg"), #4286f4;
+  background-position: center center;
+  color: #fff;
+  text-shadow: 2px 2px #707172;
+ 
+}
+
+h3 {
+  font-family: 'Risque', cursive, sans-serif;
+  font-size: 3rem;
+}
+
+#heading {
+  text-align: center;
+  position: relative;
+  font-family: 'Rammetto One', cursive, sans-serif;
+}
+
+#battle-royale {
+  font-size: 5rem;
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+}
+
 .character__div {
   border: 1px black solid;
+  color: rgb(53, 50, 50);
   display: inline-block;
+  background: #fff;
+  text-shadow: none;
+  margin: 10px;v
 }
 
 .character__image {
@@ -11,15 +43,32 @@
   text-align: center;
 }
 
-.character__div {
-  margin: 10px;
+.hp {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 5px;
 }
 
 #alert-message {
   border: 1px black solid;
   text-align: center;
+  background: #fff;
+  text-shadow: none;
+  color: rgb(53, 50, 50); 
+  padding: 10px;
 }
 
 .disappear {
   visibility: hidden;
+}
+
+#attack-button {
+  color: rgb(53, 50, 50);
+  margin-left: 40px;
+}
+
+.modal {
+  font-family: 'Risque', cursive, sans-serif;
+  font-size: 2rem;
+  color: rgb(53, 50, 50);
 }

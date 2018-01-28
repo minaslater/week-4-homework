@@ -3,39 +3,39 @@ $(function () {
 });
 
 var player,
-  attacker,
-  alertMessage = $("#alert-message");
+    attacker,
+    alertMessage = $("#alert-message");
 var characters = {
   jeanGrey: {
     name: "Jean Grey",
-    baseAttack: 8,
-    attackPower: 8,
-    hitPoints: 220,
-    counterAttackPower: 15,
+    baseAttack: 9,
+    attackPower: 9,
+    hitPoints: 230,
+    counterAttackPower: 13,
     displayHTML: "<div id='jean-grey__img'><img class='character__image' src='assets/images/jean-grey.jpg' alt='jean grey' /></div><div id='jean-grey__hp' class='hp'>50</div>"
   },
   magneto: {
     name: "Magneto",
-    baseAttack: 9,
-    attackPower: 9,
-    hitPoints: 270,
-    counterAttackPower: 19,
+    baseAttack: 5,
+    attackPower: 5,
+    hitPoints: 260,
+    counterAttackPower: 20,
     displayHTML: "<div id='magneto__img'><img class='character__image' src='assets/images/magneto.jpg' alt='magneto' /></div><div id='magneto__hp' class='hp'>45</div>"
   },
   rogue: {
     name: "Rogue",
-    baseAttack: 6,
-    attackPower: 6,
-    hitPoints: 260,
-    counterAttackPower: 18,
+    baseAttack: 7,
+    attackPower: 7,
+    hitPoints: 250,
+    counterAttackPower: 17,
     displayHTML: "<div id='rogue__img'><img class='character__image' src='assets/images/rogue.gif' alt='rogue' /></div><div id='rogue__hp' class='hp'>60</div>"
   },
   angel: {
     name: "Angel",
-    baseAttack: 7,
-    attackPower: 7,
-    hitPoints: 250,
-    counterAttackPower: 20,
+    baseAttack: 8,
+    attackPower: 8,
+    hitPoints: 240,
+    counterAttackPower: 16,
     displayHTML: "<div id='angel__img'><img class='character__image' src='assets/images/angel.jpg' alt='angel' /></div><div id='angel__hp' class='hp'>90</div>"
   }
 }
@@ -108,6 +108,9 @@ function processAttack() {
   alertMessage.addClass("disappear");
   attacker.hitPoints -= player.attackPower;
   $("#current__attacker .hp").text(attacker.hitPoints.toString());
+  if (checkProgress()) {
+    return;
+  }
   player.hitPoints -= attacker.counterAttackPower;
   $("#current__player .hp").text(player.hitPoints.toString());
   player.attackPower += player.baseAttack;
@@ -115,9 +118,15 @@ function processAttack() {
 }
 
 function checkProgress() {
+  var gameOver = false;
   if (player.hitPoints <= 0) {
-    $("#you-lose").modal();
+    $("#you-lose").modal({
+      escapeClose: false,
+      clickClose: false,
+      showClose: false
+    });
     $("#attack-button").hide();
+    gameOver = true;
   } else if (attacker.hitPoints <= 0) {
     $("#attack-button").hide();
     if ($("#enemies").children().length) {
@@ -127,7 +136,13 @@ function checkProgress() {
       $("#current__attacker").empty();
       $("#defeated").append(defeatedHTML);
     } else {
-      $("#you-win").modal();
+      $("#you-win").modal({
+        escapeClose: false,
+        clickClose: false,
+        showClose: false
+      });
+      gameOver = true;
     }
   }
+  return gameOver;
 }
