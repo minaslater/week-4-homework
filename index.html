@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>X-Men Battle Royale</title>
+  <link rel="icon" type="image/png" href="assets/images/x-icon.png">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
@@ -13,10 +14,16 @@
 </head>
 
 <body>
-  <div id="player-alert">
-    <h4 id="alert-message">testing</h4>
-  </div>
   <div class="container">
+    <div id="heading" class="row">
+      <img class="col-xs-12 col-md-6 col-md-offset-1" src="assets/images/logo.png" alt="x-men title" />
+      <div id="battle-royale" class="col-md-4">Battle Royale!</div>
+    </div>
+    <div class="row">
+      <div id="player-alert" class="col-md-4 col-md-offset-4">
+        <h4 id="alert-message">testing</h4>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-12">
         <div id="available-characters">
@@ -25,7 +32,7 @@
     </div>
     <div id="game-play">
       <div class="row">
-        <div class="col-xs-3 col-md-3">
+        <div class="col-xs-3 col-md-3 col-md-offset-2">
           <h3>
             your player:
           </h3>
@@ -34,7 +41,7 @@
             <div id="current__player" class="character__div"></div>
           </div>
         </div>
-        <div class="col-xs-3 col-xs-offset-6 col-md-3 col-md-offset-6">
+        <div class="col-xs-3 col-xs-offset-4 col-md-3 col-md-offset-3">
           <h3>
             attacking:
           </h3>
@@ -45,12 +52,12 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-2 col-md-offset-5">
+        <div class="col-xs-2 col-xs-offset-5 col-md-2 col-md-offset-5">
           <button id="attack-button">ATTACK!</button>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-7">
           <h3>
             enemies:
           </h3>
@@ -58,7 +65,7 @@
           <div id="enemies">
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
           <h3>
             Defeated:
           </h3>
