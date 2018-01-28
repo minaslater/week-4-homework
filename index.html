@@ -8,69 +8,80 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 </head>
 
 <body>
+  <div id="player-alert">
+    <h4 id="alert-message">testing</h4>
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3 id="characters">
-          choose a character:
-        </h3>
-        <!-- where the characters go at start -->
         <div id="available-characters">
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-3 col-md-3">
-        <h3>
-          your player:
-        </h3>
-        <!-- where the player character go -->
-        <div id="player">
-          <div id="current__player" class="character__div"></div>
+    <div id="game-play">
+      <div class="row">
+        <div class="col-xs-3 col-md-3">
+          <h3>
+            your player:
+          </h3>
+          <!-- where the player character go -->
+          <div id="player">
+            <div id="current__player" class="character__div"></div>
+          </div>
+        </div>
+        <div class="col-xs-3 col-xs-offset-6 col-md-3 col-md-offset-6">
+          <h3>
+            attacking:
+          </h3>
+          <!-- where the attacker go when selected -->
+          <div id="attacker">
+            <div id="current__attacker" class="character__div"></div>
+          </div>
         </div>
       </div>
-      <div class="col-xs-3 col-xs-offset-6 col-md-3 col-md-offset-6">
-        <h3>
-          attacking:
-        </h3>
-        <!-- where the attacker go when selected -->
-        <div id="attacker">
-          <div id="current__attacker" class="character__div"></div>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+          <button id="attack-button">ATTACK!</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>
+            enemies:
+          </h3>
+          <!-- where the other three goes -->
+          <div id="enemies">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h3>
+            Defeated:
+          </h3>
+          <!-- where the defeated enemies go -->
+          <div id="defeated">
+          </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-2 col-md-offset-5">
-        <button id="attack-button">ATTACK!</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <h3>
-          enemies:
-        </h3>
-        <!-- where the other three goes -->
-        <div id="enemies">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <h3>
-          Defeated:
-        </h3>
-        <!-- where the defeated enemies go -->
-        <div id="defeated">
-        </div>
-      </div>
-    </div>
-
+  </div>
+  <div id="you-win" class="modal">
+    <h4>YOU WIN!</h4>
+    <button class="play-again">Play Again!</button>
+  </div>
+  <div id="you-lose" class="modal">
+    <h4>YOU LOSE!</h4>
+    <button class="play-again">Play Again!</button>
   </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
 <script src="assets/javascript/game.js"></script>
 
 </html>

@@ -6,3 +6,20 @@
 .character__image {
   max-width: 150px;
 }
+
+#available-characters {
+  text-align: center;
+}
+
+.character__div {
+  margin: 10px;
+}
+
+#alert-message {
+  border: 1px black solid;
+  text-align: center;
+}
+
+.disappear {
+  visibility: hidden;
+}
