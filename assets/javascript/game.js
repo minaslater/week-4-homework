@@ -3,7 +3,8 @@ $(function () {
 });
 
 var player,
-  attacker;
+  attacker,
+  alertMessage = $("#alert-message");
 var characters = {
   jeanGrey: {
     name: "Jean Grey",
@@ -60,7 +61,7 @@ function createStartingDivs() {
 }
 
 function startGame() {
-  $("#alert-message").text("Choose your player");
+  alertMessage.text("Choose your player").removeClass("disappear");
   $.modal.close();
   $("#characters").show();
   $("#game-play").hide();
@@ -78,7 +79,7 @@ function startGame() {
 
 function selectPlayer(event) {
   player = characters[$(this).data("name")];
-  $("#alert-message").text("Choose an enemy to attack");
+  alertMessage.text("Choose an enemy to attack");
   $("#game-play").show();
   var playerHTML = $(event.currentTarget).html();
   $("#current__player").html(playerHTML);
@@ -94,7 +95,7 @@ function selectPlayer(event) {
 
 function selectAttacker(event) {
   attacker = characters[$(this).data("name")];
-  $("#alert-message").text("Click button to attack. Good Luck!")
+  alertMessage.text("Click button to attack. Good Luck!")
   var attackerHTML = $(event.currentTarget).html();
   $("#attack-button").show();
   $("#current__attacker").html(attackerHTML);
@@ -103,7 +104,7 @@ function selectAttacker(event) {
 }
 
 function processAttack() {
-  $("#alert-message").addClass("disappear");
+  alertMessage.addClass("disappear");
   attacker.hitPoints -= player.attackPower;
   $("#current__attacker .hp").text(attacker.hitPoints.toString());
   player.hitPoints -= attacker.counterAttackPower;
@@ -123,7 +124,7 @@ function checkProgress() {
     $("#attack-button").hide();
     if ($("#enemies").children().length) {
       console.log("select another enemy")
-      $("#you-win").modal();
+      alertMessage.text("Choose another enemy").removeClass("disappear");
       $(".enemies").on("click", selectAttacker);
       $("#attack-button").hide();
       $("#defeated").show();
