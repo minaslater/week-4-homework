@@ -8,26 +8,26 @@ var player,
 var characters = {
   jeanGrey: {
     name: "Jean Grey",
-    baseAttack: 10,
-    attackPower: 10,
-    hitPoints: 220,
-    counterAttackPower: 15,
+    baseAttack: 9,
+    attackPower: 9,
+    hitPoints: 230,
+    counterAttackPower: 13,
     displayHTML: "<div id='jean-grey__img'><img class='character__image' src='assets/images/jean-grey.jpg' alt='jean grey' /></div><div id='jean-grey__hp' class='hp'>50</div>"
   },
   magneto: {
     name: "Magneto",
-    baseAttack: 11,
-    attackPower: 11,
-    hitPoints: 250,
-    counterAttackPower: 17,
+    baseAttack: 5,
+    attackPower: 5,
+    hitPoints: 260,
+    counterAttackPower: 20,
     displayHTML: "<div id='magneto__img'><img class='character__image' src='assets/images/magneto.jpg' alt='magneto' /></div><div id='magneto__hp' class='hp'>45</div>"
   },
   rogue: {
     name: "Rogue",
-    baseAttack: 9,
-    attackPower: 9,
-    hitPoints: 260,
-    counterAttackPower: 16,
+    baseAttack: 7,
+    attackPower: 7,
+    hitPoints: 250,
+    counterAttackPower: 17,
     displayHTML: "<div id='rogue__img'><img class='character__image' src='assets/images/rogue.gif' alt='rogue' /></div><div id='rogue__hp' class='hp'>60</div>"
   },
   angel: {
@@ -35,7 +35,7 @@ var characters = {
     baseAttack: 8,
     attackPower: 8,
     hitPoints: 240,
-    counterAttackPower: 18,
+    counterAttackPower: 16,
     displayHTML: "<div id='angel__img'><img class='character__image' src='assets/images/angel.jpg' alt='angel' /></div><div id='angel__hp' class='hp'>90</div>"
   }
 }
