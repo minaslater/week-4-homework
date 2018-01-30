@@ -12,7 +12,8 @@ var characters = {
     attackPower: 9,
     hitPoints: 230,
     counterAttackPower: 13,
-    displayHTML: "<div id='jean-grey__img'><img class='character__image' src='assets/images/jean-grey.jpg' alt='jean grey' /></div><div id='jean-grey__hp' class='hp'>50</div>"
+    displayHTML: "<div id='jean-grey__img'><img class='character__image' src='assets/images/jean-grey.jpg' alt='jean-grey' /></div><div id='jean-grey__hp' class='hp'>230</div>",
+    villainImg: "assets/images/dark-phoenix.jpg"
   },
   magneto: {
     name: "Magneto",
@@ -20,7 +21,8 @@ var characters = {
     attackPower: 5,
     hitPoints: 260,
     counterAttackPower: 20,
-    displayHTML: "<div id='magneto__img'><img class='character__image' src='assets/images/magneto.jpg' alt='magneto' /></div><div id='magneto__hp' class='hp'>45</div>"
+    displayHTML: "<div id='magneto__img'><img class='character__image' src='assets/images/magneto.jpg' alt='magneto' /></div><div id='magneto__hp' class='hp'>260</div>",
+    villainImg: "assets/images/hero-magneto.jpg"
   },
   rogue: {
     name: "Rogue",
@@ -28,7 +30,8 @@ var characters = {
     attackPower: 7,
     hitPoints: 250,
     counterAttackPower: 17,
-    displayHTML: "<div id='rogue__img'><img class='character__image' src='assets/images/rogue.gif' alt='rogue' /></div><div id='rogue__hp' class='hp'>60</div>"
+    displayHTML: "<div id='rogue__img'><img class='character__image' src='assets/images/rogue.gif' alt='rogue' /></div><div id='rogue__hp' class='hp'>250</div>",
+    villainImg: "assets/images/rogue.gif"
   },
   angel: {
     name: "Angel",
@@ -36,7 +39,8 @@ var characters = {
     attackPower: 8,
     hitPoints: 240,
     counterAttackPower: 16,
-    displayHTML: "<div id='angel__img'><img class='character__image' src='assets/images/angel.jpg' alt='angel' /></div><div id='angel__hp' class='hp'>90</div>"
+    displayHTML: "<div id='angel__img'><img class='character__image' src='assets/images/angel.jpg' alt='angel' /></div><div id='angel__hp' class='hp'>240</div>",
+    villainImg: "assets/images/archangel.jpg"
   }
 }
 
@@ -91,6 +95,11 @@ function selectPlayer(event) {
   $("#available-characters").empty();
   $(".character__div").removeClass("character");
   $("#enemies").children().addClass("enemies");
+  var enemiesEls = $("#enemies div .character__image")
+  var firstEnemy = enemiesEls[0].alt;
+  for (var i = 0; i < enemiesEls.length; i++) {
+    enemiesEls[i].src = characters[enemiesEls[i].alt].villainImg;
+  }
   $(".enemies").on("click", selectAttacker);
 }
 
