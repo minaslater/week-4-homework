@@ -12,6 +12,12 @@ Deployed via GitHub Pages [here](https://minaslater.github.io/week-4-homework/)
 * [jQuery Modal](https://getbootstrap.com/docs/3.3/) - Used to generate "game over" modals
 * [Bootstrap](https://rometools.github.io/rome/) - For responsive styling
 
+## Flowchart
+
+Reference-style: 
+
+![flowchart][assets/images/flowchart.jpg]
+
 ## Acknowledgments
 
 * Thanks for those who helped me find character images
