@@ -12,7 +12,7 @@ var characters = {
     attackPower: 9,
     hitPoints: 230,
     counterAttackPower: 13,
-    displayHTML: "<div id='jean-grey__img'><img class='character__image' src='assets/images/jean-grey.jpg' alt='jean-grey' /></div><div id='jean-grey__hp' class='hp'>230</div>",
+    displayHTML: "<div id='jean-grey__img'><img class='character__image' src='assets/images/jean-grey.jpg' alt='jeanGrey' /></div><div id='jean-grey__hp' class='hp'>230</div>",
     villainImg: "assets/images/dark-phoenix.jpg"
   },
   magneto: {
@@ -21,8 +21,8 @@ var characters = {
     attackPower: 5,
     hitPoints: 260,
     counterAttackPower: 20,
-    displayHTML: "<div id='magneto__img'><img class='character__image' src='assets/images/magneto.jpg' alt='magneto' /></div><div id='magneto__hp' class='hp'>260</div>",
-    villainImg: "assets/images/hero-magneto.jpg"
+    displayHTML: "<div id='magneto__img'><img class='character__image' src='assets/images/hero-magneto.jpg' alt='magneto' /></div><div id='magneto__hp' class='hp'>260</div>",
+    villainImg: "assets/images/magneto.jpg"
   },
   rogue: {
     name: "Rogue",
@@ -30,8 +30,8 @@ var characters = {
     attackPower: 7,
     hitPoints: 250,
     counterAttackPower: 17,
-    displayHTML: "<div id='rogue__img'><img class='character__image' src='assets/images/rogue.gif' alt='rogue' /></div><div id='rogue__hp' class='hp'>250</div>",
-    villainImg: "assets/images/rogue.gif"
+    displayHTML: "<div id='rogue__img'><img class='character__image' src='assets/images/Rogue.jpg' alt='rogue' /></div><div id='rogue__hp' class='hp'>250</div>",
+    villainImg: "assets/images/villain-rogue.jpg"
   },
   angel: {
     name: "Angel",
