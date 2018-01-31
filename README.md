@@ -14,9 +14,7 @@ Deployed via GitHub Pages [here](https://minaslater.github.io/week-4-homework/)
 
 ## Flowchart
 
-Reference-style: 
-
-![flowchart][assets/images/flowchart.jpg]
+![flowchart](assets/images/flowchart.jpg)
 
 ## Acknowledgments
 
