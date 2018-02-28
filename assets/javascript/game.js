@@ -44,6 +44,7 @@ var characters = {
   }
 }
 
+//comments go here
 function createStartingDivs() {
   var jgDiv = $("<div>");
   var magnetoDiv = $("<div>");
