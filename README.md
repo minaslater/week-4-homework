@@ -1,10 +1,10 @@
 # X-Men Battle Royale
 
-A simple X-Men themed VS battle game built as a class assignment. Play as Jean Grey, Magneto, Rogue or Angel; defeat the other three as villains to win the game.
+An X-Men themed VS battle game built with jQuery as its library for DOM manipulation. Play as Jean Grey, Magneto, Rogue or Angel. When a Player is selected from the list of the four characters, the characters not selected become Enemies. Players and Enemies move to their respective sections of the page and Attack can commence. Defeat all three enemies to win the game.
 
 ## Deployment
 
-Deployed via GitHub Pages [here](https://minaslater.github.io/week-4-homework/)
+Deployed via GitHub Pages [here](https://javascriptress.com/xmen-rpg/)
 
 ## Built With
 
