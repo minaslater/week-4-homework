@@ -44,6 +44,10 @@ var characters = {
   }
 }
 
+/**
+ * Creates the starting view of the game with the character info
+ * @returns undefined.
+ */
 function createStartingDivs() {
   var jgDiv = $("<div>");
   var magnetoDiv = $("<div>");
@@ -64,6 +68,10 @@ function createStartingDivs() {
   $("#available-characters div").addClass("character__div character")
 }
 
+/**
+ * Adds click listeners and display sections on game start
+ * @returns undefined
+ */
 function startGame() {
   alertMessage.text("Choose your player").removeClass("disappear");
   $.modal.close();
@@ -82,6 +90,12 @@ function startGame() {
   });
 }
 
+/**
+ * Move the character cards to the appropriate sections on the page based on player chosen. 
+ * Callback function for character click listener
+ * @param {object} event - the click event 
+ * @returns undefined
+ */
 function selectPlayer(event) {
   player = characters[$(this).data("name")];
   alertMessage.text("Choose an enemy to attack");
@@ -103,6 +117,12 @@ function selectPlayer(event) {
   $(".enemies").on("click", selectAttacker);
 }
 
+/**
+ * Move the character cards to the appropriate sections on the page based on enemy chosen. 
+ * Callback function for enemy click listener
+ * @param {object} event - the click event 
+ * @returns undefined
+ */
 function selectAttacker(event) {
   attacker = characters[$(this).data("name")];
   alertMessage.text("Click button to attack. Good Luck!")
@@ -113,6 +133,10 @@ function selectAttacker(event) {
   $(".enemies").off("click", selectAttacker);
 }
 
+/**
+ * processes the attack logic when the attack button is clicked
+ * @returns undefined
+ */
 function processAttack() {
   alertMessage.addClass("disappear");
   attacker.hitPoints -= player.attackPower;
@@ -126,6 +150,10 @@ function processAttack() {
   checkProgress();
 }
 
+/**
+ * Checks the progress of the game and manipulates the DOM based on winner
+ * @returns {Boolean} Returns whether the game is over or not
+ */
 function checkProgress() {
   var gameOver = false;
   if (player.hitPoints <= 0) {
